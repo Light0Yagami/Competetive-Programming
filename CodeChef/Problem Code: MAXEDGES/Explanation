@@ -1,0 +1,18 @@
+if We have N no of vertices then the formula for total no. of edges is
+
+total_edges = n C 2 (combination)  OR N * (N-1) /2;
+
+so we can have two approches 
+1. to find the no. of edges that are possible (complex)
+2. to find the no. of edhges that are not possible and then subtracting it from total  (Better)
+
+
+edges_source_to_source = source *(source -1) / 2
+edges_sink_to_sink = sink * (sink -1) /2
+
+these two edges are not allowed so we subtract them from total
+
+ans =  total_edges - edges_source_to_source = source *(source -1) / 2   +     edges_sink_to_sink = sink * (sink -1) /2
+
+and we handle those case seprate in which a vertex is a source and sink both 
+using if else condition. simply we can remove that vertex and apply the same
