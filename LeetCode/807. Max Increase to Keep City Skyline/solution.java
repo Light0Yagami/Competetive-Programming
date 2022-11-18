@@ -32,7 +32,7 @@ class Solution {
         int sum = 0;
         for(int i = 0; i < n; i++){
             for(int j = 0; j < n; j++){
-                sum += (Math.min(row_Max[i], col_Max[i]) - grid[i][j]);
+                sum += (Math.min(row_Max[i], col_Max[j]) - grid[i][j]);
             }
         }
         
