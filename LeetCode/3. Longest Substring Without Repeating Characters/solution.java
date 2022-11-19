@@ -8,14 +8,13 @@ class Solution {
         HashSet<Character> set = new HashSet<>();
         int i = 0,j = 0,n = s.length();
         while(j < n){
-            if(set.contains(s.charAt(j))){
-                i++;
-                set.remove(s.charAt(j));
-            }else{
+            if(!set.contains(s.charAt(j))){
                 set.add(s.charAt(j));
                 j++;
-                max = Math.max(max,set.size());
-                
+                max = Math.max(set.size(),max);
+            }else{
+                set.remove(s.charAt(i));
+                i++;
             }
         }
         return max;
