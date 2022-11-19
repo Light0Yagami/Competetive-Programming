@@ -16,7 +16,7 @@ class Solution {
         int i = 0,j=0;
         List<List<Integer>> ans = new ArrayList<>();
         
-        for(i = 1; i < n; i++){
+        for(i = 1; i <= n; i++){
             List<Integer> subans =  new ArrayList<>();
 
             for(j = 0; j< n; j++){
