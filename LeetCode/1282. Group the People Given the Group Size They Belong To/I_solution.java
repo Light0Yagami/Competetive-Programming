@@ -35,3 +35,34 @@ class Solution {
         return ans;
     }
 }
+
+// Time complexity = O(n)
+
+// to decrease this we can change the first loop to run till the max element of array
+    
+class Solution {
+    public static List<List<Integer>> groupThePeople(int[] groupSizes) {        
+        int n = Arrays.stream(groupSizes).max().getAsInt();
+        int m = groupSizes.length;
+        int i = 0,j=0;
+        List<List<Integer>> ans = new ArrayList<>();
+        
+        for(i = 1; i <= n; i++){
+            List<Integer> subans =  new ArrayList<>();
+
+            for(j = 0; j< m; j++){
+                if(groupSizes[j] == i){
+                    if(subans.size() >= i){
+                        ans.add(subans);
+                        subans.clear();
+                    }
+                    subans.add(j);
+                }
+            }
+            if(subans.size() > 0){
+                ans.add(subans);
+            }
+        }
+        return ans;
+    }
+}
