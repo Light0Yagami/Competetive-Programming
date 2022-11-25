@@ -48,3 +48,26 @@ public:
         return ans;
     }
 };
+
+
+// Also you can use recursion to reduce space complexity
+
+ vector<int> rightSideView(TreeNode* root) {
+        vector<int> ans;
+        int lvl = 1;
+        int maxlvl = 0;
+        helper(ans,root,lvl,maxlvl);
+        return ans;
+    }
+    
+    void helper(vector<int> &ans, TreeNode *root, int level, int &maxlvl){
+        if(!root) return;
+        
+        if(maxlvl < level){
+            ans.push_back(root->val);
+            maxlvl = level;
+        }
+        
+        helper(ans,root->right,level + 1,maxlvl);
+        helper(ans,root->left,level + 1, maxlvl);
+    } 
