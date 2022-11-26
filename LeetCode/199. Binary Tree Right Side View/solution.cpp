@@ -39,7 +39,7 @@ public:
                 q.push({(temp.first)->right,temp.second+1});
             }
             if(temp.first->left){
-                q.push({(temp.first)->left,temp.second+1});
+                q.push({(temp.first)->left,temp.second+1}); //for left view just right this conditon first
             }
             
         }
