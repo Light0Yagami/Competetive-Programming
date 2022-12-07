@@ -7,18 +7,23 @@ The first integer of each row is greater than the last integer of the previous r
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        int r = 0;
-        int c = matrix.size() - 1;
+        int n = matrix.size();
+        int m = matrix[0].size();
 
-        while(r < matrix.size() and c >= 0 ){
-            if(matrix[r][c] == target){
+        int lo = 0;
+        int hi = (n * m) - 1;
+
+        while(lo <= hi){
+            int mid = (lo + (hi - lo)/2);
+
+            if(matrix[mid/m][mid%m] == target){
                 return true;
             }
-
-            if(matrix[r][c] < target){
-                r++;
-            }else{
-                c--;
+            if(matrix[mid/m][mid%m] < target){
+                lo = mid + 1;
+            }
+            else{
+                hi = mid - 1;
             }
         }
         return false;
